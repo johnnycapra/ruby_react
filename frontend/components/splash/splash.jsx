@@ -1,23 +1,28 @@
 import React from 'react';
+import SignUpForm from '../users/create_user_container';
+import Logout_container from '../logout/logout_container';
 
 class Splash extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { time: new Date().toLocaleTimeString() };
     } 
 
     componentDidMount() {
-        setInterval(() => {
-            this.setState({ time: new Date().toLocaleTimeString() })
-        }, 1000);
         this.props.fetchUsers();
     };
+
+    display() {
+        if (localStorage.userId || this.props.state.session.id && this.props.state.users.length) {
+            return <Logout_container />
+        } else {
+            return <SignUpForm/>
+        }
+    }
 
     render() {
         return (
             <div>
-                the time is: { this.state.time }
-                HELLOOOOO
+                {this.display()}
             </div>
         );
     };

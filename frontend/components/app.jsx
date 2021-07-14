@@ -3,6 +3,7 @@ import { Route, Switch, Router, BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import SplashContainer from './splash/splash_container';
 
+
 const customHistory = createBrowserHistory(); 
 const App = () => (
     <div className="app">

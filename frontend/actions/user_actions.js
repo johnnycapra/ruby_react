@@ -19,6 +19,12 @@ export const fetchUsers = () => dispatch => (
     .then(users => dispatch(receiveUsers(users)))
 )
 
+export const fetchUser = (userId) => dispatch => (
+    UserApiUtil.fetchUser(userId)
+    .then(user => dispatch(receiveUser(user)))
+) 
+    
+
 export const createUser = user => dispatch => (
     UserApiUtil.signUp(user)
     .then(user => dispatch(receiveUser(user)))
